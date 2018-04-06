@@ -29,7 +29,7 @@ Navegue até o diretório raíz da sua instalação do Magento 2 e execute os se
 
 ```
 bin/composer require intelipost/magento2-autocomplete  // Faz a requisição do módulo da Intelipost
-bin/magento module:enable magento2-autocomplete        // Ativa o módulo
+bin/magento module:enable Intelipost_Autocomplete      // Ativa o módulo
 bin/magento setup:upgrade                              // Registra a extensão
 bin/magento setup:di:compile                           // Recompila o projeto Magento
 ```
