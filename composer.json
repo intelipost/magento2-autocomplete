@@ -1,0 +1,34 @@
+{
+    "name": "intelipost/magento2-autocomplete",
+    "description": "Intelipost Autocomplete",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Intelipost",
+            "email": "integracoes@intelipost.com.br",
+            "homepage": "http://www.intelipost.com.br/"
+        },
+        {
+            "name": "Eneias Ramos de Melo",
+            "email": "eneias@gamuza.com.br",
+            "homepage": "http://www.gamuza.com.br/"
+        }
+    ],
+    "license": [
+        "OSL-3.0"
+    ],
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0",
+        "intelipost/magento2-basic": "1.*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Intelipost\\Autocomplete\\": ""
+        }
+    }
+}
+

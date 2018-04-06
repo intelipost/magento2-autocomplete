@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/*
+ * @package     Intelipost_Autocomplete
+ * @copyright   Copyright (c) Intelipost (http://www.gamuza.com.br/)
+ * @author      Alex Restani <alex.restani@intelipost.com.br>
+ */
+-->
+
+<config>
+    <system>
+        <tab id="intelipost" translate="label" sortOrder="0">
+            <label>Intelipost</label>
+        </tab>
+        <section id="intelipost_autocomplete" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Auto Complete</label>
+            <tab>intelipost</tab>
+            <resource>Intelipost_Autocomplete::config</resource>
+            <group id="settings" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Settings</label>
+                <field id="load_page_time" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Load Page Time</label>
+                    <comment>mili seconds</comment>
+                </field>
+            </group>
+            <group id="custom_fields_checkout" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom Fields by Name - Checkout Adress</label>
+                <field id="checkout_custom_state" translate="label comment" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>State</label>
+                    <comment>Use two backslashes '\\' to escape special characters.</comment>
+                </field>
+                <field id="checkout_custom_city" translate="label comment" type="text" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>City</label>
+                    <comment>Use two backslashes '\\' to escape special characters.</comment>
+                </field>
+                <field id="checkout_custom_street" translate="label comment" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Street</label>
+                    <comment>Use two backslashes '\\' to escape special characters.</comment>
+                </field>
+                <field id="checkout_custom_quarter" translate="label comment" type="text" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quarter</label>
+                    <comment>Use two backslashes '\\' to escape special characters.</comment>
+                </field>
+                <field id="checkout_custom_additional_info" translate="label comment" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Information</label>
+                    <comment>Use two backslashes '\\' to escape special characters.</comment>
+                </field>
+            </group>
+            <group id="custom_fields_customer" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom Fields by Id - Edit Customer Adress</label>
+                <field id="custom_state" translate="label comment" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>State</label>
+                    <comment></comment>
+                </field>
+                <field id="custom_city" translate="label comment" type="text" sortOrder="22" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>City</label>
+                    <comment></comment>
+                </field>
+                <field id="custom_street" translate="label comment" type="text" sortOrder="23" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Street</label>
+                    <comment></comment>
+                </field>
+                <field id="custom_quarter" translate="label comment" type="text" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quarter</label>
+                    <comment></comment>
+                </field>
+                <field id="custom_additional_info" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Information</label>
+                    <comment></comment>
+                </field>
+            </group>
+            <group id="custom_fields_customer_create" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Custom Fields by Id - Create Customer Adress</label>
+                <field id="create_custom_state" translate="label comment" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>State</label>
+                    <comment></comment>
+                </field>
+                <field id="create_custom_city" translate="label comment" type="text" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>City</label>
+                    <comment></comment>
+                </field>
+                <field id="create_custom_street" translate="label comment" type="text" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Street</label>
+                    <comment></comment>
+                </field>
+                <field id="create_custom_quarter" translate="label comment" type="text" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quarter</label>
+                    <comment></comment>
+                </field>
+                <field id="create_custom_additional_info" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Additional Information</label>
+                    <comment></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

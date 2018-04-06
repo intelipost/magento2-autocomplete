@@ -1,0 +1,103 @@
+<?php
+/*
+ * @package     Intelipost_Autocomplete
+ * @copyright   Copyright (c) 2016 Gamuza Technologies (http://www.gamuza.com.br/)
+ * @author      Eneias Ramos de Melo <eneias@gamuza.com.br>
+ */
+?>
+
+<script>
+
+require([
+    'jquery',
+    'jquery/validate'
+], function(jQuery){
+
+function intelipostAutocompleteFillData(elementPrefix, json)
+{
+    // Street
+    var street = jQuery(elementPrefix + '_street0');
+    street.val (json.street);
+
+    var street = jQuery(elementPrefix + '_street3');
+    street.val (json.neighborhood);
+
+    // City
+    var city = jQuery(elementPrefix + '_city');
+    city.val (json.city);
+
+    // State
+    var state = jQuery(elementPrefix + '_region_id');
+    state.val (intelipostAutocompleteUF [json.state_short]);
+}
+
+function intelipostAutocompleteDoEvents(elementPrefix)
+{
+
+    jQuery(elementPrefix + "_postcode").blur(function(){
+
+        var value = jQuery(this).val ();
+
+        jQuery.ajax({
+            data: {form_key: window.FORM_KEY},
+            // type: 'GET',
+
+            url: INTELIPOST_AUTOCOMPLETE_URL + "?postcode=" + value,
+            showLoader: true, // enable loader
+
+            success: function(data) {
+                // console.log(data);
+
+                if (!data.length) return;
+
+                var json = JSON.parse (data);
+
+                intelipostAutocompleteFillData (elementPrefix, json);
+            },
+        });
+
+    });
+
+}
+
+intelipostAutocompleteDoEvents ("#order-billing_address");
+intelipostAutocompleteDoEvents ("#order-shipping_address");
+
+// DYNAMIC
+
+jQuery(document).ready(function(){
+
+function intelipostAutocompleteInterval()
+{
+    _iACi = setInterval(function(){
+
+        if (!Ajax.activeRequestCount)
+        {
+            clearInterval(_iACi);
+
+            intelipostAutocompleteDoEvents ("#order-shipping_address");
+        }
+
+    }, 1000);
+}
+
+// order._selectAddress = order.selectAddress;
+order.selectAddress = function(el, container){
+    // order._selectAddress(el, container);
+
+    intelipostAutocompleteInterval();
+}
+
+order._setShippingAsBilling = order.setShippingAsBilling;
+order.setShippingAsBilling = function(flag){
+    order._setShippingAsBilling(flag);
+
+    intelipostAutocompleteInterval();
+}
+
+}); // documentReady
+
+}); // requireJS
+
+</script>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/*
+ * @package     Intelipost_Autocomplete
+ * @copyright   Copyright (c) 2016 Gamuza Technologies (http://www.gamuza.com.br/)
+ * @author      Eneias Ramos de Melo <eneias@gamuza.com.br>
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="content">
+            <block class="\Intelipost\Autocomplete\Block\Url"   template="url.phtml"   name="intelipost_autocomplete_url"   after="order_content" />
+            <block class="\Intelipost\Autocomplete\Block\Order" template="order.phtml" name="intelipost_autocomplete_order" />
+        </referenceBlock>
+    </body>
+</page>
+

@@ -1,0 +1,93 @@
+<?php
+/*
+ * @package     Intelipost_Autocomplete
+ * @copyright   Copyright (c) Intelipost
+ * @author      Alex Restani <alex.restani@intelipost.com.br>
+ */
+?>
+
+<script>
+
+require([
+    'jquery',
+    'jquery/validate'
+], function(jQuery){
+
+function intelipostAutocompleteFillData(json)
+{
+    // Country
+    var country = jQuery("[name=country_id]");
+    country.val ('BR');
+
+    // Street
+    var customStreet = "<?php echo $this->getCustomStreet(); ?>";
+    var street = jQuery("#".concat(customStreet));
+    street.val (json.street);
+
+    // Quarter
+    var customQuarter = "<?php echo $this->getCustomQuarter(); ?>";
+    var street = jQuery("#".concat(customQuarter));
+    street.val (json.neighborhood);
+
+    // City
+    var customCity = "<?php echo $this->getCustomCity(); ?>";
+    var city = jQuery("#".concat(customCity));
+    city.val (json.city);
+
+    // State
+    var customState = "<?php echo $this->getCustomState(); ?>";
+    var state = jQuery("#".concat(customState));
+    state.val (intelipostAutocompleteUF [json.state_short]);
+
+    // Additional Inofrmation
+    var customAdditional = "<?php echo $this->getCustomAdditionalInfo(); ?>";
+    var additional = jQuery("#".concat(customAdditional));
+    additional.val (json.additional_info);
+}
+
+
+
+// DYNAMIC
+
+jQuery(document).ready(function(){
+
+var interval;
+
+function intelipostAutocompleteDoEvents()
+{
+
+    jQuery("[name=postcode]").blur(function(){
+
+        var value = jQuery(this).val ();
+
+        jQuery.ajax({
+            data: {form_key: window.FORM_KEY},
+
+            url: INTELIPOST_AUTOCOMPLETE_URL + "?postcode=" + value,
+            showLoader: true,
+
+            success: function(data) {
+
+                if (!data.length) return;
+
+                var json = JSON.parse (data);
+
+                intelipostAutocompleteFillData (json);
+            },
+        });
+
+    });
+
+    clearInterval(interval);
+}
+
+var time             = "<?php echo $this->getLoadPageTime(); ?>";
+interval = setInterval(intelipostAutocompleteDoEvents, time);
+
+
+});
+
+});
+
+</script>
+
