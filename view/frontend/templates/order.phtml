@@ -1,0 +1,96 @@
+<?php
+/*
+ * @package     Intelipost_Autocomplete
+ * @copyright   Copyright (c) 2016 Gamuza Technologies (http://www.gamuza.com.br/)
+ * @author      Eneias Ramos de Melo <eneias@gamuza.com.br>
+ */
+?>
+
+<script>
+
+require([
+    'jquery',
+    'jquery/validate'
+], function(jQuery){
+
+function intelipostAutocompleteFillData(json)
+{
+    // Country
+    var country = jQuery("[name=country_id]");
+    country.val ('BR').trigger('keyup');
+
+    //City
+    var customCity = "<?php echo $this->getCustomCity(); ?>";
+    var city = jQuery("[name=".concat(customCity, "]"));
+    city.val (json.city).trigger('keyup');
+
+    // State
+    var customState = "<?php echo $this->getCustomState(); ?>";
+    var state = jQuery("[name=".concat(customState, "]"));
+    state.val (intelipostAutocompleteUF [json.state_short]).trigger('change');
+
+    // Additional Information
+    var customAdditional = "<?php echo $this->getCustomAdditionalInfo(); ?>";
+    var additional = jQuery("[name=".concat(customAdditional, "]"));
+    additional.val (json.additional_info).trigger('keyup');
+
+    // Street
+    var customStreet = "<?php echo $this->getCustomStreet(); ?>";
+    var street = jQuery("[name=".concat(customStreet, "]"));
+    street.val (json.street).trigger('keyup');
+
+    //Quarter
+    var customQuarter = "<?php echo $this->getCustomQuarter(); ?>";
+    var quarter = jQuery("[name=".concat(customQuarter, "]"));
+    quarter.val (json.neighborhood).trigger('keyup');
+}
+
+
+
+// DYNAMIC
+
+jQuery(document).ready(function(){
+
+var interval;
+
+function intelipostAutocompleteDoEvents()
+{
+
+    var checkPotscode = jQuery("[name=postcode]");
+
+    jQuery("[name=postcode]").blur(function(){
+
+        var value = jQuery(this).val ();
+
+        jQuery.ajax({
+            data: {form_key: window.FORM_KEY},
+
+            url: INTELIPOST_AUTOCOMPLETE_URL + "?postcode=" + value,
+            showLoader: true,
+
+            success: function(data) {
+
+                if (!data.length) return;
+
+                var json = JSON.parse (data);
+
+                intelipostAutocompleteFillData (json);
+            },
+        });
+
+    });
+
+    if (checkPotscode.length){
+        clearInterval(interval); 
+    }
+}
+
+var time = "<?php echo $this->getLoadPageTime(); ?>";
+interval = setInterval(intelipostAutocompleteDoEvents, time);
+
+});
+
+});
+
+</script>
+

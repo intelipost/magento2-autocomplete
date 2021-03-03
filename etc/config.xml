@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/*
+ * @package     Intelipost_Autocomplete
+ * @copyright   Copyright (c) Intelipost
+ * @author      Alex Restani <alex.restani@intelipost.com.br>
+ */
+-->
+
+<config>
+    <default>
+        <intelipost_autocomplete>
+            <settings>
+                <load_page_time><![CDATA[3000]]></load_page_time>
+            </settings>
+            <custom_fields_customer>
+                <custom_state><![CDATA[region_id]]></custom_state>
+                <custom_city><![CDATA[city]]></custom_city>
+                <custom_street><![CDATA[street_1]]></custom_street>
+                <custom_quarter><![CDATA[street_3]]></custom_quarter>
+                <custom_additional_info><![CDATA[street_4]]></custom_additional_info>
+            </custom_fields_customer>
+            <custom_fields_checkout>
+                <checkout_custom_state><![CDATA[region_id]]></checkout_custom_state>
+                <checkout_custom_city><![CDATA[city]]></checkout_custom_city>
+                <checkout_custom_street><![CDATA[street\\[0\\]]]></checkout_custom_street>
+                <checkout_custom_quarter><![CDATA[street\\[2\\]]]></checkout_custom_quarter>
+                <checkout_custom_additional_info><![CDATA[street\\[3\\]]]></checkout_custom_additional_info>
+            </custom_fields_checkout>
+            <custom_fields_customer_create>
+                <create_custom_state><![CDATA[region_id]]></create_custom_state>
+                <create_custom_city><![CDATA[city]]></create_custom_city>
+                <create_custom_street><![CDATA[street_1]]></create_custom_street>
+                <create_custom_quarter><![CDATA[street_3]]></create_custom_quarter>
+                <create_custom_additional_info><![CDATA[street_4]]></create_custom_additional_info>
+            </custom_fields_customer_create>
+        </intelipost_autocomplete>
+    </default>
+</config>
