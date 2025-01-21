@@ -1,0 +1,16 @@
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: magento2-autocomplete
+  description: some description
+  annotations:
+    argocd/app-name: magento2-autocomplete
+    github.com/project-slug: intelipost/magento2-autocomplete
+    sonarqube.org/project-key: magento2-autocomplete
+spec:
+  type: service
+  lifecycle: production
+  owner: devteam
+  childof: 
+    - group:tms-engineering-managers
