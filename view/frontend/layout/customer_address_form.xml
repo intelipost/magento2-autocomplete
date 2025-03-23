@@ -10,8 +10,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="\Intelipost\Autocomplete\Block\Url"   template="url.phtml"   name="intelipost_autocomplete_url"   after="order_content" />
-            <block class="\Intelipost\Autocomplete\Block\Customer" template="customer.phtml" name="intelipost_autocomplete_customer" />
+            <block class="Intelipost\Autocomplete\Block\Url"   template="url.phtml"   name="intelipost_autocomplete_url"   after="order_content" />
+            <block class="Intelipost\Autocomplete\Block\Customer" template="customer.phtml" name="intelipost_autocomplete_customer" />
         </referenceContainer>
     </body>
 </page>
