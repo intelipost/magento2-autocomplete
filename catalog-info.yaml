@@ -11,6 +11,6 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: devteam
+  owner: expedicao
   childof: 
     - group:tms-engineering-managers
